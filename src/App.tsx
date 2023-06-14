@@ -1,12 +1,18 @@
 import './App.css'
+import Form from './components/Form'
 
-function App() {
-
+const App: React.FC = () => {
+  const handleFormSubmit = (nome: string, valor: number, parcelas: number) => {
+    console.log('Valores do formulário:', nome, valor, parcelas);
+  };
 
   return (
     <>
-      
+      <h1>Solicitação de emprestimo</h1>
+      <Form onSubmit={handleFormSubmit} />
     </>
+
+
   )
 }
 
