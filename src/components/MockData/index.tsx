@@ -1,7 +1,12 @@
 import Form from "../Form";
 
 interface MockProps {
-  onSubmit: (parcelas: number, numeroParcelas: number, totalComJuros: number) => void;
+  onSubmit: (
+    parcelas: number,
+    numeroParcelas: number,
+    totalComJuros: number,
+    nome: string
+  ) => void
 }
 
 const MockData: React.FC<MockProps> = ({ onSubmit }) => {
@@ -14,7 +19,7 @@ const MockData: React.FC<MockProps> = ({ onSubmit }) => {
 
     // Simulação de um atraso de 1 segundo para imitar a chamada assíncrona ao backend
     setTimeout(() => {
-      onSubmit(valorParcelas, parcelas, totalComJuros);
+      onSubmit(valorParcelas, parcelas, totalComJuros, nome);
     }, 1000);
   }
 
