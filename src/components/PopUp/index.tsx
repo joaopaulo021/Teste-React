@@ -1,5 +1,4 @@
 import { PopupContainer, PopupContent, PopupButton } from './styles';
-
 interface PopupProps {
   valorParcelas: number;
   numeroParcelas: number;
@@ -12,8 +11,9 @@ const PopUp: React.FC<PopupProps> = ({
   valorParcelas,
   numeroParcelas,
   totalComJuros,
-  onConfirm,
   onCancel,
+  onConfirm,
+
 }) => {
   return (
     <PopupContainer>
@@ -22,7 +22,7 @@ const PopUp: React.FC<PopupProps> = ({
         <p>Valor das Parcelas: R$ {valorParcelas}</p>
         <p>Número de Parcelas: {numeroParcelas}</p>
         <p>Total do Valor com Juros: R$ {totalComJuros}</p>
-        <PopupButton onClick={onConfirm}>Confirmar Empréstimo</PopupButton>
+        <PopupButton onClick={onConfirm}>Confirmar</PopupButton>
         <PopupButton onClick={onCancel}>Cancelar</PopupButton>
       </PopupContent>
     </PopupContainer>

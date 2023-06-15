@@ -1,15 +1,11 @@
 import Form from "../Form";
-import { useState } from "react";
 
 interface MockProps {
   onSubmit: (parcelas: number, numeroParcelas: number, totalComJuros: number) => void;
 }
 
 const MockData: React.FC<MockProps> = ({ onSubmit }) => {
-
-
   const simulateRequest = (nome: string, valor: number, parcelas: number) => {
-
 
     // Simulação da requisição ao backend com os valores fornecidos
     const juros = valor * 0.05; // Juros de 5%
@@ -24,9 +20,7 @@ const MockData: React.FC<MockProps> = ({ onSubmit }) => {
 
   return (
     <>
-
       <Form onSubmit={simulateRequest} />
-
     </>
   );
 

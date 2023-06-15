@@ -12,11 +12,7 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-
-    // Chama a função onSubmit passando os valores atuais dos campos
     onSubmit(nome, valor, parcelas);
-
-    // Limpa os campos após o envio do formulário
     setNome('');
     setValor(0);
     setParcelas(0);

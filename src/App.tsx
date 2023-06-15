@@ -3,7 +3,7 @@ import './App.css'
 import MockData from './components/MockData';
 import DataDisplay from './components/DataDisplay';
 import PopUp from './components/PopUp';
-
+import ConfirmPage from './pages/ConfirmPage';
 
 interface DadosSimulados {
   valorParcelas: number;
@@ -11,19 +11,28 @@ interface DadosSimulados {
   totalComJuros: number;
 }
 
+const formatoReal = (valor: number): string => {
+  return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+}
+
 const App: React.FC = () => {
   const [dadosSimulados, setDadosSimulados] = useState<DadosSimulados | null>(null);
   const [showPopup, setShowPopup] = useState(false);
+  const [confirmed, setConfirmed] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const handleMockSubmit = (valorParcelas: number, numeroParcelas: number, totalComJuros: number) => {
     setDadosSimulados({ valorParcelas, numeroParcelas, totalComJuros });
-
   };
 
   const handleConfirm = () => {
-    // Aqui você pode realizar alguma ação ao confirmar os dados, como enviar para o servidor ou atualizar o estado do aplicativo
-    console.log('Dados confirmados:', dadosSimulados);
+    setLoading(true);
     setShowPopup(false);
+    setConfirmed(true)
+    setTimeout(() => {
+      setLoading(false); // Define o estado de carregamento como falso após 2 segundos
+      setConfirmed(true);
+    }, 2000);
   };
 
   const handleCancel = () => {
@@ -33,14 +42,18 @@ const App: React.FC = () => {
   return (
     <>
       <h1>Solicitação de empréstimo</h1>
-      <MockData onSubmit={handleMockSubmit} />
-      {dadosSimulados && (
-        <DataDisplay
-          valorParcelas={dadosSimulados.valorParcelas}
-          numeroParcelas={dadosSimulados.numeroParcelas}
-          totalComJuros={dadosSimulados.totalComJuros}
-          onConfirm={() => setShowPopup(true)}
-        />
+      {!confirmed && (
+        <>
+          <MockData onSubmit={handleMockSubmit} />
+          {dadosSimulados && (
+            <DataDisplay
+              valorParcelas={dadosSimulados.valorParcelas}
+              numeroParcelas={dadosSimulados.numeroParcelas}
+              totalComJuros={dadosSimulados.totalComJuros}
+              onConfirm={() => setShowPopup(true)}
+            />
+          )}
+        </>
       )}
       {showPopup && (
         <PopUp
@@ -51,9 +64,21 @@ const App: React.FC = () => {
           onCancel={handleCancel}
         />
       )}
+      {confirmed && dadosSimulados && (
+        <>
+          {loading ? (
+            <p>Carregando seu empréstimo...</p>
+          ) : (
+            <ConfirmPage
+              formatoReal={formatoReal}
+              valorParcelas={dadosSimulados.valorParcelas}
+              numeroParcelas={dadosSimulados.numeroParcelas}
+              totalComJuros={dadosSimulados.totalComJuros}
+            />
+          )}
+        </>
+      )}
     </>
-
-
   )
 }
 
