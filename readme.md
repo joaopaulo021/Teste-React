@@ -29,20 +29,34 @@ O projeto é composto pelos seguintes componentes:
   Responsável por simular uma requisição ao backend e fornecer os dados simulados para o simulador de empréstimo.
 </details>
 
-- Form
+<details>
+<summary style="color: blue;">Form</summary>
 Componente de formulário onde o usuário insere o nome, valor e quantidade de parcelas desejadas.
+</details>
 
-- DataDisplay
-Exibe os dados do empréstimo calculados, incluindo o valor das parcelas, a quantidade de parcelas e o valor total com juros de 5%. Permite ao usuário confirmar o empréstimo.
+<details>
+  <summary><span style="color: blue;">DataDisplay</span></summary>
 
-- DataParcela
-Componente reutilizavel dos valores retornados do mock utilizado no PopUp,ConfirmPage e DataDisplay 
+  Exibe os dados do empréstimo calculados, incluindo o valor das parcelas, a quantidade de parcelas e o valor total com juros de 5%. Permite ao usuário confirmar o empréstimo.
+</details>
 
-- PopUp
-Componente de pop-up que exibe os dados do empréstimo calculados e permite ao usuário confirmar ou cancelar o empréstimo.
+<details>
+  <summary><span style="color: blue;">DataParcela</span></summary>
 
-- ConfirmPage
-Página de confirmação do empréstimo, exibindo uma mensagem de sucesso e os detalhes do empréstimo. Permite ao usuário voltar para a página inicial.
+  Componente reutilizável dos valores retornados do mock utilizado no PopUp, ConfirmPage e DataDisplay.
+</details>
+
+<details>
+  <summary><span style="color: blue;">PopUp</span></summary>
+
+  Componente de pop-up que exibe os dados do empréstimo calculados e permite ao usuário confirmar ou cancelar o empréstimo.
+</details>
+
+<details>
+  <summary><span style="color: blue;">ConfirmPage</span></summary>
+
+  Página de confirmação do empréstimo, exibindo uma mensagem de sucesso e os detalhes do empréstimo. Permite ao usuário voltar para a página inicial.
+</details>
 
 ## Desenvolvimento
 
