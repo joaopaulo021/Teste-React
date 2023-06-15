@@ -34,7 +34,7 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
       </StyledLabel>
 
       <StyledLabel>
-        Valor desejado  
+        Valor desejado
         <StyledInput
           type="number"
           value={valor}
