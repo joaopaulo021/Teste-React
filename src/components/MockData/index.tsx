@@ -6,10 +6,10 @@ interface MockProps {
 }
 
 const MockData: React.FC<MockProps> = ({ onSubmit }) => {
-  const [loading, setLoading] = useState(false);
+
 
   const simulateRequest = (nome: string, valor: number, parcelas: number) => {
-    setLoading(true);
+
 
     // Simulação da requisição ao backend com os valores fornecidos
     const juros = valor * 0.05; // Juros de 5%
@@ -24,11 +24,9 @@ const MockData: React.FC<MockProps> = ({ onSubmit }) => {
 
   return (
     <>
-      {loading ? (
-        <p>Carregando...</p>
-      ) : (
-        <Form onSubmit={simulateRequest} />
-      )}
+
+      <Form onSubmit={simulateRequest} />
+
     </>
   );
 

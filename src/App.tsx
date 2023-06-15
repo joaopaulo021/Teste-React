@@ -1,21 +1,39 @@
 import './App.css'
-import Form from './components/Form'
 import MockData from './components/MockData';
+import DataDisplay from './components/DataDisplay';
+import { useState } from 'react';
+
+interface DadosSimulados {
+  valorParcelas: number;
+  numeroParcelas: number;
+  totalComJuros: number;
+}
 
 const App: React.FC = () => {
-  // const handleFormSubmit = (nome: string, valor: number, parcelas: number) => {
-  //   console.log('Valores do formulário:', nome, valor, parcelas);
-  // };
+  const [dadosSimulados, setDadosSimulados] = useState<DadosSimulados | null>(null);
 
   const handleMockSubmit = (valorParcelas: number, numeroParcelas: number, totalComJuros: number) => {
-    console.log('Valores simulados do backend:', valorParcelas, numeroParcelas, totalComJuros);
-    // Aqui você pode utilizar os valores simulados como desejar, como exibir na interface ou atualizar estados
+    setDadosSimulados({ valorParcelas, numeroParcelas, totalComJuros });
+
+  };
+
+  const handleConfirm = () => {
+    // Aqui você pode realizar alguma ação ao confirmar os dados, como enviar para o servidor ou atualizar o estado do aplicativo
+    console.log('Dados confirmados:', dadosSimulados);
   };
 
   return (
     <>
       <h1>Solicitação de emprestimo</h1>
       <MockData onSubmit={handleMockSubmit} />
+      {dadosSimulados && (
+        <DataDisplay
+          valorParcelas={dadosSimulados.valorParcelas}
+          numeroParcelas={dadosSimulados.numeroParcelas}
+          totalComJuros={dadosSimulados.totalComJuros}
+          onConfirm={handleConfirm}
+        />
+      )}
     </>
 
 
