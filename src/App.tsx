@@ -47,6 +47,7 @@ const App: React.FC = () => {
           <MockData onSubmit={handleMockSubmit} />
           {dadosSimulados && (
             <DataDisplay
+              formatoReal={formatoReal}
               valorParcelas={dadosSimulados.valorParcelas}
               numeroParcelas={dadosSimulados.numeroParcelas}
               totalComJuros={dadosSimulados.totalComJuros}
@@ -57,6 +58,7 @@ const App: React.FC = () => {
       )}
       {showPopup && (
         <PopUp
+          formatoReal={formatoReal}
           valorParcelas={dadosSimulados?.valorParcelas || 0}
           numeroParcelas={dadosSimulados?.numeroParcelas || 0}
           totalComJuros={dadosSimulados?.totalComJuros || 0}

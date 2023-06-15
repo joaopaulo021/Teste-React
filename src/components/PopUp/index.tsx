@@ -5,6 +5,7 @@ interface PopupProps {
   totalComJuros: number;
   onConfirm: () => void;
   onCancel: () => void;
+  formatoReal: (valor: number) => string;
 }
 
 const PopUp: React.FC<PopupProps> = ({
@@ -13,15 +14,16 @@ const PopUp: React.FC<PopupProps> = ({
   totalComJuros,
   onCancel,
   onConfirm,
+  formatoReal,
 
 }) => {
   return (
     <PopupContainer>
       <PopupContent>
         <h2>Dados do Empréstimo</h2>
-        <p>Valor das Parcelas: R$ {valorParcelas}</p>
+        <p>Valor das Parcelas:  {formatoReal(valorParcelas)}</p>
         <p>Número de Parcelas: {numeroParcelas}</p>
-        <p>Total do Valor com Juros: R$ {totalComJuros}</p>
+        <p>Total do Valor com Juros: {formatoReal(totalComJuros)}</p>
         <PopupButton onClick={onConfirm}>Confirmar</PopupButton>
         <PopupButton onClick={onCancel}>Cancelar</PopupButton>
       </PopupContent>
