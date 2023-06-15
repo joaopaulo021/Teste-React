@@ -1,4 +1,5 @@
-
+import DataParcela from "../DataParcela";
+import { StyledButton, StyledDivContainer } from "./styles";
 interface DataDisplayProps {
   valorParcelas: number;
   numeroParcelas: number;
@@ -16,13 +17,16 @@ const DataDisplay: React.FC<DataDisplayProps> = ({
 
 }) => {
   return (
-    <div>
-      <h2>Dados simulados do Backend:</h2>
-      <p>Valor das parcelas: {formatoReal(valorParcelas)}</p>
-      <p>Número de parcelas: {numeroParcelas}</p>
-      <p>Total do valor com juros: {formatoReal(totalComJuros)}</p>
-      <button onClick={onConfirm}>Confirmar</button>
-    </div>
+    <StyledDivContainer>
+      <h2>Confira os dados:</h2>
+      <DataParcela
+        formatoReal={formatoReal}
+        valorParcelas={valorParcelas}
+        numeroParcelas={numeroParcelas}
+        totalComJuros={totalComJuros}
+      />
+      <StyledButton onClick={onConfirm}>Confirmar</StyledButton>
+    </StyledDivContainer>
   );
 };
 
