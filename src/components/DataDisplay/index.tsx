@@ -5,7 +5,6 @@ interface DataDisplayProps {
   numeroParcelas: number;
   totalComJuros: number;
   onConfirm: () => void;
-  nome: string,
   formatoReal: (valor: number) => string;
 }
 

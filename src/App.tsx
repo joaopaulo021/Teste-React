@@ -10,7 +10,6 @@ interface DadosSimulados {
   valorParcelas: number;
   numeroParcelas: number;
   totalComJuros: number;
-  nomeCliente: string;
 }
 
 const formatoReal = (valor: number): string => {
@@ -50,7 +49,6 @@ const App: React.FC = () => {
             <MockData onSubmit={handleMockSubmit} />
             {dadosSimulados && (
               <DataDisplay
-                nomeCliente={dadosSimulados.nomeCliente}
                 formatoReal={formatoReal}
                 valorParcelas={dadosSimulados.valorParcelas}
                 numeroParcelas={dadosSimulados.numeroParcelas}
