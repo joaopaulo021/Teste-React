@@ -20,9 +20,10 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
+      <h1>Simule seu empréstimo !</h1>
       <StyledLabel>
-        Nome do solicitante
         <StyledInput
+          placeholder='Digite seu nome'
           type="text"
           value={nome}
           onChange={(e) => setNome(e.target.value)}
@@ -30,20 +31,26 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
       </StyledLabel>
 
       <StyledLabel>
-        Valor desejado
         <StyledInput
           type="number"
-          value={valor}
-          onChange={(e) => setValor(Number(e.target.value))}
+          placeholder='Insira o valor'
+          value={valor === 0 ? '' : valor}
+          onChange={(e) => {
+            const newValue = Number(e.target.value)
+            setValor(newValue >= 0 ? newValue : 0)
+          }}
         />
       </StyledLabel>
 
       <StyledLabel>
-        Número de parcelas
         <StyledInput
           type="number"
-          value={parcelas}
-          onChange={(e) => setParcelas(Number(e.target.value))}
+          placeholder='Qtd. parcelas'
+          value={parcelas === 0 ? '' : parcelas}
+          onChange={(e) => {
+            const newValue = Number(e.target.value)
+            setParcelas(newValue >= 0 ? newValue : 0)
+          }}
         />
       </StyledLabel>
       <StyledButton type="submit">Simular Empréstimo</StyledButton>
