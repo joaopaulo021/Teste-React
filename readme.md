@@ -24,8 +24,10 @@ Este projeto é um simulador de empréstimo que permite ao usuário calcular o v
 ## Componentes
 O projeto é composto pelos seguintes componentes:
 
-- MockData
-Responsável por simular uma requisição ao backend e fornecer os dados simulados para o simulador de empréstimo.
+<details>
+  <summary style="color: blue;">MockData</summary>
+  Responsável por simular uma requisição ao backend e fornecer os dados simulados para o simulador de empréstimo.
+</details>
 
 - Form
 Componente de formulário onde o usuário insere o nome, valor e quantidade de parcelas desejadas.
